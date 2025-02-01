@@ -121,15 +121,24 @@ print('\n')
 avg_gender_spend = df.groupby('Gender')['Purchase'].mean()
 print('Average expenses for male vs female customers:',avg_gender_spend)
 
+# Creating a pie chart for visualizing the break-up of purchases between Male vs Female customers
+labels = gender_spend.index  # 'M' and 'F'
+colors = ['pink', 'lightyellow']
+plt.figure(figsize=(7, 7))
+plt.pie(gender_spend, labels=labels, autopct='%1.1f%%', colors=colors, startangle=90, explode=[0.05, 0.05], shadow=True)
+plt.title('Break-up for Purchases of Male and Female Customers')
+plt.show()
+
 """**Insight:**
 
 *  It is observed that the average amount spent by male customers surpasses that of female customers.
+* Male customers contribute to 76.7% of the income received at Walmart during Black Friday, while the female customers contribute to 23.3%.
 
 ###  **Estimating the Confidence Interval**
 
 
 *   Using the sample average to find out an interval within which the population average (i.e. average spending for 50 million male and female customers each) will lie.
-*   Using various samples of customers, we calculate of the interval within which the average spending of 50 million male customers and 50 million female customers may lie.
+*   Using various samples of customers, we calculate the interval within which the average spending of 50 million male customers and 50 million female customers may lie.
 
 #### **For 95 % Confidence Level**
 """
@@ -172,7 +181,7 @@ print('95% Confidence Interval for average spending of all the customers', np.ro
 *   It is observed that for a population of 50 million male customers, the average purchase amount would be present in a range of 9422.02 - 9453.03.
 *   In case of 50 million female customers, the average purchase amount would be between 8701.21 - 8759.92.
 * Overall, for a population size of 100 million customers, the average spending for a customer would range in between 9250.69 - 9277.24.
-*  The confidence intervals for male and female customers do not overlap, indicate that different strategies have to be adopted to maximize the income.
+*  The confidence intervals for male and female customers do not overlap, indicating that different strategies have to be adopted to maximize the income.
 
 #### **For 99% Confidence Level**
 """
